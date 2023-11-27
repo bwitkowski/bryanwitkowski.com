@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  //let myMessage = "Fall 2023 Cloud for Developers";
+  const [myMessage, setMyMessage] = useState("Fall 2023 Cloud For Developers");
+
+  const changeMessage = (event) => {
+    setMyMessage(event.target.value);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onChange={changeMessage} type="text" value={myMessage} />
+      <h1>{myMessage}</h1>
     </div>
   );
 }
